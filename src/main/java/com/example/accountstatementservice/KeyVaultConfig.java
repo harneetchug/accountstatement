@@ -23,7 +23,7 @@ public class KeyVaultConfig {
     @Bean
     public DataSource dataSource(SecretClient secretClient) {
 
-        String password = secretClient.getSecret("sql-password").getValue();
+        String password = secretClient.getSecret("db-password").getValue();
 
         HikariDataSource ds = new HikariDataSource();
         ds.setJdbcUrl("jdbc:sqlserver://bankingsqlserver.database.windows.net:1433;database=accountstatementdb");
